@@ -1,17 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { makeImageUrl } from './api';
+import { TIME_SPAN, TIME_START } from './constants';
+import { Scroller } from './scroller';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// assumes all images in the feed will share the same aspect ratio.
+const baseImage = document.createElement('img');
+baseImage.onload = () => {
+  const aspectRatio = baseImage.width / baseImage.height;
+  const imageWidth = Math.floor(window.innerWidth / 3) * 0.98;
+  const imageHeight = Math.floor(imageWidth / aspectRatio);
+  const scroller = new Scroller({
+    imageWidth,
+    imageHeight,
+    numImages: TIME_SPAN / 20,
+    makeUrl: (i => makeImageUrl(TIME_START + i * 20)),
+  });
+  document.body.appendChild(scroller.element);
+  console.log('yo!');
+}
+baseImage.src = makeImageUrl(TIME_START);

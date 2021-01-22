@@ -1,3 +1,7 @@
+:root {
+  --statusBarHeight: 32px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +9,53 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #999;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.scroller {
+  height: 100%;
+  overflow-y: scroll;
+  margin-top: var(--statusBarHeight);
+}
+
+.scroller .container {
+  position: relative;
+}
+
+.scroller .statusBar {
+  width: 100%;
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  box-sizing: border-box;
+  height: var(--statusBarHeight);
+  padding: 4px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.row {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+}
+
+.row img {
+  display: inline-block;
+  flex-grow: 0;
 }

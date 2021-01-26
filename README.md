@@ -1,5 +1,5 @@
 # Verkada Takehome
-the following commands will build and run the project
+The following commands will build and run the project.
 ```
 $ yarn install
 $ yarn start
@@ -14,4 +14,4 @@ The general approach is to maintain a buffer of rows above and below the browser
 I think a fair criticism would be that the scroller is currently coupled to the source url and
 timestamp interval provided in the instructions. I debated making it more general purpose, for example
 taking in the timestamp range as an argument, or providing optional layout configuration.
-Given my the time constraints and have no examples of how it might be reused in a different context I left it as is.
+Given the time constraints and lacking examples of possible reuse patterns I left it as is.

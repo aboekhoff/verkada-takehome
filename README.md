@@ -1,4 +1,9 @@
 # Verkada Takehome
+the following commands will build and run the project
+```
+$ yarn install
+$ yarn start
+```
 
 I used create-react-app to generate the webpack config, but I wasn't completely sure what
 "use any basic libaries you want (except jQuery)" included, so I implemented the scroller just using
